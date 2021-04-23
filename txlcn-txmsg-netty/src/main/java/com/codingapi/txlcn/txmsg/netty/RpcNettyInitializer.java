@@ -23,11 +23,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description:  给Netty实现的RPC添加一些配置参数
  * Company: CodingApi
  * Date: 2019/1/16
  *
- * @author codingapi
+ * @author codingapi  田培融
  */
 @Component
 public class RpcNettyInitializer implements TxLcnInitializer {

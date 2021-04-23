@@ -25,11 +25,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description: TM服务启动时，第一个启动的类
+ * 用于启动RPC, 具体实现使用RpcServerInitializer 提供
+ * 在这里面初始化Netty实现的RPC  具体实现体 NettyRpcServerInitializer
  * Company: CodingApi
  * Date: 2018/11/29
  *
- * @author lorne
+ * @author lorne 田培融
  */
 @Component
 public class TMRpcServer implements TxLcnInitializer {

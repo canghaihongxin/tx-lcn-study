@@ -22,13 +22,13 @@ import lombok.NoArgsConstructor;
  * Description:
  * Date: 19-1-9 下午6:04
  *
- * @author ujued
+ * @author ujued  田培融
  */
 @NoArgsConstructor
 @Data
 public class RpcConfig {
     /**
-     * 最大等待时间 (ms)
+     * 最大等待时间 (ms)  如果小于5 默认设置为1000ms
      */
     private long waitTime = -1;
 
@@ -38,7 +38,7 @@ public class RpcConfig {
     private int cacheSize = 1024;
 
     /**
-     * appName 参数延迟删除时间(ms)
+     * appName 参数延迟删除时间(ms)  默认和分布式事务超时时间(ms)一样 TxManagerConfig.dtxTime
      */
     private long attrDelayTime = -1;
 

@@ -18,11 +18,11 @@ package com.codingapi.txlcn.txmsg.dto;
 import lombok.Data;
 
 /**
- * Description:
+ * Description:   TM 管理器的配置文件
  * Company: CodingApi
  * Date: 2018/12/21
  *
- * @author codingapi
+ * @author codingapi  田培融
  */
 @Data
 public class ManagerProperties  {
@@ -35,7 +35,7 @@ public class ManagerProperties  {
     private int rpcPort;
 
     /**
-     * 心态检测时间(ms)
+     * 心态检测时间(ms)  默认5分钟一次
      */
     private long checkTime;
 

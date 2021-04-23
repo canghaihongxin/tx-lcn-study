@@ -24,11 +24,11 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
- * Description:
+ * Description:  TM的相关配置
  * Company: CodingApi
  * Date: 2018/11/29
  *
- * @author ujued
+ * @author ujued  田培融
  */
 @ConfigurationProperties(prefix = "tx-lcn.manager")
 @Component
@@ -49,12 +49,12 @@ public class TxManagerConfig {
     private String host = "127.0.0.1";
 
     /**
-     * support  port
+     * support  port 默认为server.port + 100 所得
      */
     private int port;
 
     /**
-     * netty heart check time (ms)
+     * netty heart check time (ms)  心态检查时间  5分钟一次
      */
     private long heartTime = 5 * 60 * 1000;
 

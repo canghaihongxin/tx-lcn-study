@@ -28,11 +28,13 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Description:
+ * Description:  Channel为Netty服务和服务之间创建连接的通道
+ * 在channel通道中可以添加handler处理器，来具体实现业务操作   RpcAnswerHandler SocketManagerInitHandler都得处理器
+ * 同时也需要在channel中配置各种其他的处理数据节点，如编码，解码 ObjectSerializerEncoder ObjectSerializerDecoder
  * Company: CodingApi
  * Date: 2018/12/10
  *
- * @author ujued
+ * @author ujued  田培融
  */
 @Component
 public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel> {
@@ -58,6 +60,7 @@ public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel
         ch.pipeline().addLast(new LengthFieldPrepender(4, false));
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
 
+        // 配置netty的心跳检查
         ch.pipeline().addLast(new IdleStateHandler(managerProperties.getCheckTime(),
                 managerProperties.getCheckTime(), managerProperties.getCheckTime(), TimeUnit.MILLISECONDS));
 
