@@ -24,11 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Objects;
 
 /**
- * Description:
+ * Description:  Netty 服务与服务之间交互的消息体
  * Company: CodingApi
  * Date: 2018/12/10
  *
- * @author ujued
+ * @author ujued  田培融
  */
 @Slf4j
 public class NettyRpcCmd extends RpcCmd {

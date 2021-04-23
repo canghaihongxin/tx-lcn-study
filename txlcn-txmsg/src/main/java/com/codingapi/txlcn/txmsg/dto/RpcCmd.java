@@ -21,7 +21,7 @@ import com.codingapi.txlcn.txmsg.exception.RpcException;
 import java.io.Serializable;
 
 /**
- * Description:
+ * Description:   RPC 服务与服务之间交互的消息体标准
  * Company: CodingApi
  * Date: 2018/12/10
  *

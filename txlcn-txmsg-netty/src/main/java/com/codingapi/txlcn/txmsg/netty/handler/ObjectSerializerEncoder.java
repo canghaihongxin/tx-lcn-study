@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
 
 /**
+ * java 消息体进行编码序列化
  * @author lorne
  */
 @Slf4j
