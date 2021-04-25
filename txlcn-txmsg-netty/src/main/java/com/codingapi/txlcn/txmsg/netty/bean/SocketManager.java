@@ -34,6 +34,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 /**
+ * 网络连接管理容器
  * Created by lorne on 2017/6/30.
  */
 @Slf4j

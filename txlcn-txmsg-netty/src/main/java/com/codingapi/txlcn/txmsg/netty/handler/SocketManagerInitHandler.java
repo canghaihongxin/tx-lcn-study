@@ -55,11 +55,12 @@ public class SocketManagerInitHandler extends ChannelInboundHandlerAdapter {
         heartCmd.setMsg(messageDto);
         heartCmd.setKey(RandomUtils.simpleKey());
     }
-
+    // 当客户端连接到服务端的时候调用
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
         rpcConnectionListener.connect(ctx.channel().remoteAddress().toString());
+        // 将连接的channel添加到ChannelGroup
         SocketManager.getInstance().addChannel(ctx.channel());
     }
 

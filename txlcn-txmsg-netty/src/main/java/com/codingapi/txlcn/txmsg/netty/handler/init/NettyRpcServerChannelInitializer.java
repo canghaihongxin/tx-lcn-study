@@ -64,8 +64,11 @@ public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
 
         // 配置netty的心跳检查
-        ch.pipeline().addLast(new IdleStateHandler(managerProperties.getCheckTime(),
-                managerProperties.getCheckTime(), managerProperties.getCheckTime(), TimeUnit.MILLISECONDS));
+//        ch.pipeline().addLast(new IdleStateHandler(managerProperties.getCheckTime(),
+//                managerProperties.getCheckTime(), managerProperties.getCheckTime(), TimeUnit.MILLISECONDS));
+
+        ch.pipeline().addLast(new IdleStateHandler(20,
+                20,20, TimeUnit.SECONDS));
 
 //        编码器
         ch.pipeline().addLast(new ObjectSerializerEncoder());

@@ -57,4 +57,12 @@ public class MessageDto implements Serializable {
         return (T)data;
     }
 
+    public <T> T loadData(Class<T> tClass){
+        if (data instanceof Integer){
+            Integer d = loadBean(Integer.class);
+            return (T)Long.valueOf(d);
+        }
+        return (T)data;
+    }
+
 }

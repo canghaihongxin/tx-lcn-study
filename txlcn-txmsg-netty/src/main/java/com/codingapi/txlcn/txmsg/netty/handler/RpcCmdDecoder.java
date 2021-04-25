@@ -52,6 +52,8 @@ public class RpcCmdDecoder extends SimpleChannelInboundHandler<NettyRpcCmd> {
 
         //心态数据包直接响应
         if (cmd.getMsg() != null && MessageConstants.ACTION_HEART_CHECK.equals(cmd.getMsg().getAction())) {
+
+            // client和server都使用这个类，因此在这里要判断一下，当前是server还是client要走不同的逻辑
             if (NettyContext.currentType().equals(NettyType.client)) {
                 //设置值
                 heartbeatListener.onTcReceivedHeart(cmd);
