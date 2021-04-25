@@ -58,6 +58,7 @@ public class EnsureIdGenEngine implements RpcConnectionListener, HeartbeatListen
     public void onTmReceivedHeart(RpcCmd cmd) {
         try {
             Long machineId = cmd.getMsg().loadData(Long.class);
+            // 将服务端mac key 保存到redis中
             managerService.refreshMachines(machineId, managerConfig.getMachineId());
         } catch (Exception e) {
             e.printStackTrace();

@@ -32,11 +32,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description: 当客户端一连接到服务端的时候会触发这个handler
+ * 1. 当客户端连接channel添加到ChannelGroup中
+ * 2. 当客户端下线的时候调用channelInactive方法，将channel移除
+ * 3. 心跳检查机制，定时向客户端发送消息检查客户端是否在线  todo 如果不在线怎么办？
+ *
  * Company: CodingApi
  * Date: 2018/12/10
  *
- * @author ujued
+ * @author ujued  田培融
  */
 @ChannelHandler.Sharable
 @Slf4j
@@ -55,7 +59,10 @@ public class SocketManagerInitHandler extends ChannelInboundHandlerAdapter {
         heartCmd.setMsg(messageDto);
         heartCmd.setKey(RandomUtils.simpleKey());
     }
-    // 当客户端连接到服务端的时候调用
+
+    /**
+     * 当客户端连接到服务端的时候调用
+     */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
@@ -64,6 +71,11 @@ public class SocketManagerInitHandler extends ChannelInboundHandlerAdapter {
         SocketManager.getInstance().addChannel(ctx.channel());
     }
 
+
+
+    /**
+     * 当客户端下线的时候调用
+     */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
