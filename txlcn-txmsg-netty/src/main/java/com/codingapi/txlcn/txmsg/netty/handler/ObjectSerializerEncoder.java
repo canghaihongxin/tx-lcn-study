@@ -25,8 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
 
 /**
- * java 消息体进行编码序列化
- * @author lorne
+ * java 消息体进行编码序列化   它的功能就是将对象转换到二进制数据。
+ * 我们不需要每一次将响应写到对端的时候调用一次编码逻辑进行编码，也不需要自行创建 ByteBuf
+ * @author lorne  田培融
  */
 @Slf4j
 public class ObjectSerializerEncoder extends MessageToByteEncoder<Serializable> {

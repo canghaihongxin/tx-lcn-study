@@ -73,6 +73,9 @@ public class SocketManagerInitHandler extends ChannelInboundHandlerAdapter {
     }
 
 
+    /**
+     *  在触发超时调用此方法
+     */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         //心跳配置

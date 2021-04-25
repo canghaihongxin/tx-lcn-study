@@ -57,6 +57,7 @@ public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
+        //解决粘包问题
         ch.pipeline().addLast(new LengthFieldPrepender(4, false));
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
 
@@ -64,8 +65,10 @@ public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel
         ch.pipeline().addLast(new IdleStateHandler(managerProperties.getCheckTime(),
                 managerProperties.getCheckTime(), managerProperties.getCheckTime(), TimeUnit.MILLISECONDS));
 
-
+//        编码器
         ch.pipeline().addLast(new ObjectSerializerEncoder());
+
+        // 解码器
         ch.pipeline().addLast(new ObjectSerializerDecoder());
 
 

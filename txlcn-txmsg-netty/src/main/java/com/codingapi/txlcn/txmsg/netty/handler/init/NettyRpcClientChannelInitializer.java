@@ -52,7 +52,9 @@ public class NettyRpcClientChannelInitializer extends ChannelInitializer<Channel
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,
                 0, 4, 0, 4));
 
+        //编码器
         ch.pipeline().addLast(new ObjectSerializerEncoder());
+        //解码器
         ch.pipeline().addLast(new ObjectSerializerDecoder());
 
 

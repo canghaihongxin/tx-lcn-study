@@ -31,11 +31,11 @@ import org.springframework.util.StringUtils;
 
 
 /**
- * Description:
+ * Description: 服务端心太检测的响应接口
  * Company: CodingApi
  * Date: 2018/12/10
  *
- * @author ujued
+ * @author ujued 田培融
  */
 @ChannelHandler.Sharable
 @Slf4j
