@@ -57,8 +57,10 @@ public class NettyRpcServerChannelInitializer extends ChannelInitializer<Channel
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        //解决粘包问题
+
+        // 配置发送的包的长度字节
         ch.pipeline().addLast(new LengthFieldPrepender(4, false));
+        //解决粘包问题
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
 
         // 配置netty的心跳检查
