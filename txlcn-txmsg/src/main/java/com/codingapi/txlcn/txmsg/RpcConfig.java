@@ -19,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Description:
+ * Description: RPC 服务的相关配置
  * Date: 19-1-9 下午6:04
  *
  * @author ujued  田培融

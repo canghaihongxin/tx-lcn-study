@@ -62,6 +62,14 @@ public class TxLcnApplicationRunner implements ApplicationRunner, DisposableBean
         // 4. com.codingapi.txlcn.logger.helper.MysqlLoggerHelper@2dc73024,
         // 5.com.codingapi.txlcn.tm.cluster.TMAutoCluster@6d9428f3
 
+        // TC 启动时初始化的服务
+        //com.codingapi.txlcn.tc.core.checking.DTXCheckingInitialization@389bc2d3,
+        // com.codingapi.txlcn.tc.corelog.txc.TxcLogHelper@64887fbc,
+        // com.codingapi.txlcn.tc.txmsg.TCRpcServer@4c91f5bf,
+        // com.codingapi.txlcn.tc.corelog.aspect.AspectLogHelper@7f8cd5fc,
+        // com.codingapi.txlcn.txmsg.netty.RpcNettyInitializer@76b019c4,
+        // com.codingapi.txlcn.logger.helper.MysqlLoggerHelper@21ed4a51
+
         for (TxLcnInitializer txLcnInitializer : initializers) {
             txLcnInitializer.init();
         }

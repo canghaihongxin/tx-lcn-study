@@ -69,7 +69,10 @@ public class NettyRpcServerInitializer implements RpcServerInitializer, Disposab
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
+                    // 当服务端处理线程满后，接收请求连接的队列
+                    // BACKLOG用于构造服务端套接字ServerSocket对象，标识当服务器请求处理线程全满时，用于临时存放已完成三次握手的请求的队列的最大长度。
                     .option(ChannelOption.SO_BACKLOG, 100)
+                    //handler在初始化时就会执行，而childHandler会在客户端成功connect后才执行
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(nettyRpcServerChannelInitializer);
 

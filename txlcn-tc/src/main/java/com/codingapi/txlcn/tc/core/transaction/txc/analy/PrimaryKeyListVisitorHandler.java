@@ -16,7 +16,7 @@ import java.util.Map;
 @Component
 public class PrimaryKeyListVisitorHandler implements PrimaryKeysProvider {
 
-    @Value("${tx-lcn.primary-key-package}")
+    @Value("${tx-lcn.primary-key-package:null}")
     private String primaryKeyPackage;
 
     @Override

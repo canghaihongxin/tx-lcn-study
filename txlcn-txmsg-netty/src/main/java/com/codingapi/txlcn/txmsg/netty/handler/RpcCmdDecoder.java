@@ -45,6 +45,11 @@ public class RpcCmdDecoder extends SimpleChannelInboundHandler<NettyRpcCmd> {
     @Autowired
     private HeartbeatListener heartbeatListener;
 
+    /**
+     * 当接收到 NettyRpcCmd 的时候调用这个方法
+     * @param ctx
+     * @param cmd
+     */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, NettyRpcCmd cmd) {
         String key = cmd.getKey();
